@@ -1,0 +1,26 @@
+
+<div class="body-contenido h-100">
+  <app-navbar-content
+  [titleNavBar]="'Camera Store Catalogo'"
+  ></app-navbar-content>
+  <div class="container mt-5 h-100">
+    <nav aria-label="breadcrumb" class="mt-5">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Catalogo</li>
+      </ol>
+    </nav>
+    <div class="row mt-5 mb-5 justify-content-center align-items-center h-100">
+      <div class="col-md-4 mb-4" *ngFor="let producto of productos">
+        <app-card-product
+          class="h-100 d-flex flex-column"
+          [nombre]="producto.nombre"
+          [descripcion]="producto.descripcion"
+          [precio]="producto.precio"
+          [imagen]="producto.imagen"
+        ></app-card-product>
+      </div>
+    </div>
+  </div>
+</div>
+

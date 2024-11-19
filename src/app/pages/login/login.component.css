@@ -1,0 +1,45 @@
+/* Clases y estilos correspondientes al login */
+
+html, body {
+  height: 100%;
+}
+
+.body-login {
+  background-color: #fdebd0;
+  height: 100% !important;
+}
+
+.card-header-login {
+  background-color: #f9e79f !important;
+}
+
+.img-login {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.a-hover:hover {
+  cursor: pointer;
+}
+
+.requirement-list {
+  li {
+    font-size: 0.7rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    span {
+      color: #6c757d;
+    }
+  }
+}
+
+
+.dv_validate{
+  color: red;
+  font-size :  12px;
+  margin-top: 5px;
+}
+

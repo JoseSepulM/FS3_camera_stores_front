@@ -1,0 +1,139 @@
+<div class="body-login">
+  <div class="container-fluid h-100">
+      <div class="row h-100 justify-content-center p-xs-o p-sm-1 p-md-3 p-lg-5">
+          <div class="col-8">
+              <div class="card shadow h-100">
+                  <div class="card-header card-header-login">
+                      <ul class="nav nav-tabs card-header-tabs justify-content-end">
+                          <li class="nav-item">
+                              <a class="a-hover nav-link active" id="itemLogin" #itemLogin aria-current="true">Ingresar</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="a-hover nav-link" id="itemRegister" #itemRegister>Registrarse</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="card-body text-center">
+                      <div class="row h-100 p-2">
+                          <div class="col-lg-6 col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center h-100 position-relative">
+                              <img [src]="imgLogin" alt="Login Image" class="img-login">
+                          </div>
+                          <div class="col-sm-12 col-md-6 h-100">
+                              <div class="row align-items-center h-100">
+                                  <div id="dv_login" #dvLogin>
+                                      <div class="row">
+                                          <div class="col">
+                                              <h1 class="fw-light">Camera Store</h1>
+                                          </div>
+                                      </div>
+                                      <div class="row mt-3">
+                                          <div class="col">
+                                              <div class="input-group mb-3">
+                                                  <span class="input-group-text" id="basic-addon1"></span>
+                                                  <input type="text" class="form-control" id="txtNombreUsuario" #txtNombreUsuario placeholder="Nombre usuario" required>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col">
+                                              <div class="input-group mb-3">
+                                                  <span class="input-group-text" id="basic-addon1"></span>
+                                                  <input type="password" class="form-control" id="txtClaveSecreta" #txtClaveSecreta placeholder="Clave secreta" required>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row justify-content-between">
+                                          <div class="col"><a class="link-secondary a-hover" id="linkContrasenia" #linkContrasenia >Olvide mi contraseña</a></div>
+                                          <div class="col"><a class="link-secondary a-hover" id="linkRegistro" #linkRegistro >Deseo registrarme</a></div>
+                                      </div>
+                                      <div class="row mt-5">
+                                          <div class="col">
+                                              <button id="buttonLogin" (click)="login()" #buttonLogin type="button" class="btn btn-outline-success w-100">Ingresar</button>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                                  <div id="dvRegister" #dvRegister class="d-none">
+                                      <div class="row">
+                                          <div class="col">
+                                              <h1 class="fw-light">Registro</h1>
+                                          </div>
+                                      </div>
+                                      <form [formGroup]="miFormulario" (ngSubmit)="submitForm()">
+                                          <div class="row mt-3">
+                                              <div class="col">
+                                                  <div class="input-group mb-3">
+                                                      <span class="input-group-text" id="basic-addon1"></span>
+                                                      <input type="text" class="form-control" id="nombre" placeholder="Nombre usuario" formControlName="nombre">
+                                                  </div>
+                                                  <div *ngIf="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.hasError('required')">
+                                                      <span class="dv_validate">Campo requerido</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col">
+                                                  <div class="input-group mb-3">
+                                                      <span class="input-group-text" id="basic-addon1"></span>
+                                                      <input type="text" class="form-control" id="email" placeholder="Correo electronico"  formControlName="email">
+                                                  </div>
+                                                  <div *ngIf="miFormulario.get('email')?.touched && miFormulario.get('email')?.hasError('required')">
+                                                      <span class="dv_validate">Campo requerido</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col">
+                                                  <div class="input-group mb-3">
+                                                      <span class="input-group-text" id="basic-addon1"></span>
+                                                      <input type="password" class="form-control" id="pass" placeholder="Password" formControlName="pass">
+                                                  </div>
+                                                  <div *ngIf="miFormulario.get('pass')?.touched && miFormulario.get('pass')?.hasError('required')">
+                                                      <span class="dv_validate">Campo requerido</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col">
+                                                  <ul class="requirement-list">
+                                                      <li>
+                                                          <span>Almenos 8 caracteres (a-z, A-Z, 0-9)</span>
+                                                      </li>
+                                                      <li>
+                                                          <span>Una mayuscula (A-Z)</span>
+                                                      </li>
+                                                      <li>
+                                                          <span>Un numero (0-9)</span>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="row mt-3">
+                                              <div class="col">
+                                                  <button type="submit" class="btn btn-outline-success w-100">Registrarse</button>
+                                              </div>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" #liveToast class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Alerta</strong>
+          <small>No se puede ingresar</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+          Usuario o contraseña no correctos....
+      </div>
+  </div>
+</div>
