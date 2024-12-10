@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
     standalone: true,
     imports: [],
     templateUrl: './navbar-content.component.html',
-    styleUrl: './navbar-content.component.scss'
+    styleUrl: './navbar-content.component.css'
 })
 export class NavbarContentComponent implements OnInit {
 

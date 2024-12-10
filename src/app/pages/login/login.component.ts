@@ -2,14 +2,14 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
 import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, FormGroup, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
     standalone: true,
     imports: [ReactiveFormsModule, CommonModule, FormsModule],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.scss',
+    styleUrl: './login.component.css',
 })
 
 export class LoginComponent implements OnInit {
@@ -40,6 +40,13 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+      this.miFormulario = this.fb.group({
+        nombre: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        pass: ['', [Validators.required, Validators.minLength(8)]],
+      });
+
       this.showHideCards();
       this.recuperarContrasenia();
 
